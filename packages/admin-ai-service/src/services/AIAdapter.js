@@ -9,24 +9,30 @@ class AIAdapter {
   }
 
   async chat(messages) {
+    // 对于OpenAI兼容的API（包括NVIDIA、自定义等），统一使用OpenAI格式
     switch (this.provider) {
       case 'openai':
+      case 'nvidia':
+      case 'custom':
         return await this.chatOpenAI(messages);
       case 'qwen':
         return await this.chatQwen(messages);
       default:
-        throw new Error(`不支持的AI服务商: ${this.provider}`);
+        // 默认尝试使用OpenAI兼容格式
+        return await this.chatOpenAI(messages);
     }
   }
 
   async chatOpenAI(messages) {
+    // 支持OpenAI及其兼容API（NVIDIA、自定义等）
     try {
       const response = await axios.post(
         `${this.baseUrl}/chat/completions`,
         {
-          model: this.model || 'gpt-3.5-turbo',
+          model: this.model,
           messages: messages,
-          temperature: 0.7
+          temperature: 0.7,
+          max_tokens: 1024
         },
         {
           headers: {
@@ -37,19 +43,20 @@ class AIAdapter {
       );
       return response.data.choices[0].message.content;
     } catch (error) {
-      console.error('OpenAI API调用失败:', error.response?.data || error.message);
+      console.error(`${this.provider} API调用失败:`, error.response?.data || error.message);
       throw new Error('AI服务调用失败');
     }
   }
 
   async chatQwen(messages) {
-    // 通义千问API实现（待补充具体API格式）
+    // 通义千问API实现
     try {
       const response = await axios.post(
         `${this.baseUrl}/chat/completions`,
         {
-          model: this.model || 'qwen-turbo',
-          messages: messages
+          model: this.model,
+          messages: messages,
+          temperature: 0.7
         },
         {
           headers: {

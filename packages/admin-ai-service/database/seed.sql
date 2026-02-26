@@ -2,7 +2,8 @@ USE admin_ai;
 
 -- 插入示例AI模型配置
 INSERT INTO ai_models (name, provider, api_key, base_url, model, is_active) VALUES
-('OpenAI GPT-3.5', 'openai', 'your-api-key-here', 'https://api.openai.com/v1', 'gpt-3.5-turbo', 1);
+('NVIDIA Llama 3.1', 'nvidia', 'your-nvidia-api-key-here', 'https://integrate.api.nvidia.com/v1', 'meta/llama-3.1-8b-instruct', 1),
+('OpenAI GPT-3.5', 'openai', 'your-openai-api-key-here', 'https://api.openai.com/v1', 'gpt-3.5-turbo', 0);
 
 -- 插入示例知识库
 INSERT INTO knowledge_base (title, content, category, related_routes) VALUES

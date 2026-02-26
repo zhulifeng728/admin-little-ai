@@ -6,7 +6,11 @@
       "Bash(git commit:*)",
       "Bash(pnpm install:*)",
       "Bash(pnpm config:*)",
-      "Bash(mysql:*)"
+      "Bash(mysql:*)",
+      "Bash(tree:*)",
+      "Bash(ls:*)",
+      "Bash(brew install:*)",
+      "Bash(xcode-select:*)"
     ]
   }
 }
