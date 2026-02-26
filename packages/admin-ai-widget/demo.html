@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI助手组件演示</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+
+    .demo-container {
+      max-width: 800px;
+      width: 100%;
+      background: white;
+      border-radius: 12px;
+      padding: 40px;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+    }
+
+    h1 {
+      color: #333;
+      margin-bottom: 20px;
+    }
+
+    .info {
+      background: #f0f0f0;
+      padding: 20px;
+      border-radius: 8px;
+      margin-bottom: 20px;
+    }
+
+    .info h2 {
+      font-size: 18px;
+      margin-bottom: 10px;
+      color: #667eea;
+    }
+
+    .info p {
+      margin: 8px 0;
+      color: #666;
+      line-height: 1.6;
+    }
+
+    .demo-routes {
+      margin-top: 20px;
+    }
+
+    .demo-routes h3 {
+      font-size: 16px;
+      margin-bottom: 10px;
+      color: #333;
+    }
+
+    .demo-routes ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    .demo-routes li {
+      padding: 8px 12px;
+      background: white;
+      margin: 8px 0;
+      border-radius: 6px;
+      border: 1px solid #ddd;
+    }
+
+    .demo-routes code {
+      color: #667eea;
+      font-family: 'Courier New', monospace;
+    }
+  </style>
+</head>
+<body>
+  <div class="demo-container">
+    <h1>🤖 AI助手组件演示</h1>
+
+    <div class="info">
+      <h2>使用说明</h2>
+      <p>1. 点击右下角的AI助手按钮打开对话窗口</p>
+      <p>2. 尝试问一些问题，比如："如何查看用户列表？"</p>
+      <p>3. AI助手会根据知识库给出回答，并提供相关页面链接</p>
+      <p>4. 点击回答中的链接会触发页面跳转（在控制台查看事件）</p>
+    </div>
+
+    <div class="demo-routes">
+      <h3>示例问题：</h3>
+      <ul>
+        <li>如何查看用户列表？</li>
+        <li>怎么添加新用户？</li>
+        <li>系统设置在哪里？</li>
+        <li>如何重置密码？</li>
+      </ul>
+    </div>
+  </div>
+
+  <script type="module">
+    import AdminAIWidget from './src/index.js'
+
+    // 初始化AI助手组件
+    new AdminAIWidget({
+      apiUrl: 'http://localhost:3000/api',
+      position: 'bottom-right'
+    })
+
+    // 监听导航事件
+    window.addEventListener('ai-assistant-navigate', (e) => {
+      console.log('导航到:', e.detail.path)
+      alert(`模拟跳转到: ${e.detail.path}`)
+    })
+  </script>
+</body>
+</html>
