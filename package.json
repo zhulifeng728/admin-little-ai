@@ -1,0 +1,21 @@
+{
+  "name": "admin-ai-assistant",
+  "version": "1.0.0",
+  "description": "后台管理系统AI小助手 - Monorepo",
+  "private": true,
+  "workspaces": [
+    "packages/*"
+  ],
+  "scripts": {
+    "dev:widget": "pnpm --filter admin-ai-widget dev",
+    "dev:console": "pnpm --filter admin-ai-console dev",
+    "dev:service": "pnpm --filter admin-ai-service dev",
+    "build:widget": "pnpm --filter admin-ai-widget build",
+    "build:console": "pnpm --filter admin-ai-console build",
+    "build:service": "pnpm --filter admin-ai-service build",
+    "build": "pnpm build:widget && pnpm build:console && pnpm build:service"
+  },
+  "keywords": ["ai", "assistant", "admin", "chatbot"],
+  "author": "",
+  "license": "MIT"
+}
