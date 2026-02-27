@@ -9,5 +9,19 @@
   <body>
     <div id="app"></div>
     <script type="module" src="/src/main.js"></script>
+    <!-- AI助手组件 -->
+    <script src="http://localhost:5174/src/index.js" type="module"></script>
+    <script type="module">
+      import AdminAIWidget from 'http://localhost:5174/src/index.js'
+
+      // 初始化AI助手
+      new AdminAIWidget({
+        apiUrl: 'http://localhost:3000/api',
+        position: 'bottom-right',
+        theme: {
+          primaryColor: '#409eff'
+        }
+      })
+    </script>
   </body>
 </html>

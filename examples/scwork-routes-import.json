@@ -1,87 +1,167 @@
 [
   {
+    "path": "/docmap/docs/protection-domain",
+    "name": "核心文档保护",
+    "description": "保护核心文档资产，防止泄密和非法访问"
+  },
+  {
+    "path": "/docmap/docs/document-level-class",
+    "name": "分类分级工具集",
+    "description": "对文档进行分类分级管理的工具集合"
+  },
+  {
+    "path": "/docmap/tags-config",
+    "name": "分类分级行业模版",
+    "description": "配置不同行业的文档分类分级模版"
+  },
+  {
+    "path": "/docmap/doc-scan",
+    "name": "文档全盘扫描",
+    "description": "扫描系统中的所有文档，进行分类分级识别"
+  },
+  {
     "path": "/docmap/index",
-    "name": "文档流管理",
-    "description": "文档流管理首页，包含数据看板、家族树、机构管理、部门管理、人员管理等功能"
+    "name": "数据资产管理",
+    "description": "管理和监控企业的数据资产"
   },
   {
-    "path": "/docmap/auth/login",
-    "name": "登录页面",
-    "description": "系统登录页面，输入用户名和密码登录系统"
+    "path": "/docmap/docs/department-statistics",
+    "name": "部门视角",
+    "description": "从部门维度查看文档资产分布和使用情况"
   },
   {
-    "path": "/policies/index",
-    "name": "安全策略管理",
-    "description": "配置和管理系统的安全策略，包括访问控制、密码策略、会话管理、审计策略等"
+    "path": "/docmap/docs/business-documents",
+    "name": "业务系统导出数据视角",
+    "description": "查看从各业务系统导出的文档数据"
   },
   {
-    "path": "/monitors/computer",
-    "name": "终端计算机管理",
-    "description": "管理和监控所有接入系统的终端计算机，查看计算机状态和配置信息"
+    "path": "/docmap/docs/category-documents",
+    "name": "类别视角",
+    "description": "按文档类别查看资产分布"
   },
   {
-    "path": "/monitors/proxy",
-    "name": "代理管理",
-    "description": "配置和管理系统的代理服务器，监控代理服务器运行状态"
+    "path": "/docmap/docs/level-documents",
+    "name": "级别视角",
+    "description": "按文档级别（机密程度）查看资产分布"
   },
   {
-    "path": "/monitors/appServer",
-    "name": "应用服务器管理",
-    "description": "管理应用服务器，监控服务器性能和资源使用情况"
+    "path": "/docmap/docs/collaboration-documents",
+    "name": "协作途径视角",
+    "description": "查看通过不同协作途径流转的文档"
   },
   {
-    "path": "/monitors/monitorLog",
-    "name": "系统监控日志",
-    "description": "查看系统监控相关的操作日志、系统日志和错误日志"
+    "path": "/docmap/docs/level-class-guide",
+    "name": "级别类别设置指引",
+    "description": "配置文档级别和类别的指引说明"
   },
   {
-    "path": "/monitors/software",
-    "name": "软件管理",
-    "description": "管理终端计算机上安装的软件，查看软件清单和版本信息"
+    "path": "/docmap/docs/level-class-view",
+    "name": "级别类别各视角分布",
+    "description": "查看不同级别类别在各视角的分布情况"
   },
   {
-    "path": "/monitors/hardware",
-    "name": "系统资源监控",
-    "description": "实时监控系统的CPU、内存、磁盘、网络等硬件资源使用情况"
+    "path": "/docmap/docs/workflow-documents",
+    "name": "工作流视角",
+    "description": "查看在工作流中流转的文档"
   },
   {
-    "path": "/monitors/process",
-    "name": "进程监控",
-    "description": "监控系统中运行的进程，查看进程的资源占用和运行状态"
+    "path": "/docmap/docs/full-risk",
+    "name": "全周期风险设置",
+    "description": "配置文档全生命周期的风险监控规则"
   },
   {
-    "path": "/monitors/netstate",
-    "name": "网络端口监控",
-    "description": "监控系统的网络端口使用情况、连接状态和流量统计"
+    "path": "/docmap/docs/risk-data-view",
+    "name": "全周期风险视图",
+    "description": "查看文档全生命周期的风险监控数据"
   },
   {
-    "path": "/monitors/service",
-    "name": "系统服务监控",
-    "description": "监控和管理系统中运行的各种服务，可以启动、停止、重启服务"
+    "path": "/docmap/docs/tell-list",
+    "name": "员工泄密分析司法固证",
+    "description": "分析员工泄密行为，提供司法取证支持"
   },
   {
-    "path": "/dept/index",
-    "name": "部门管理",
-    "description": "管理各机构下的部门结构，支持树形结构展示和管理"
+    "path": "/docmap/docs/document-statistics",
+    "name": "文档统计",
+    "description": "统计文档的各项指标数据"
   },
   {
-    "path": "/monitor/online",
-    "name": "在线用户",
-    "description": "查看当前在线的用户，可以强制下线异常用户"
+    "path": "/docmap/docs/family-tree",
+    "name": "文档全生命周期溯源",
+    "description": "追溯文档从创建到流转的完整生命周期"
   },
   {
-    "path": "/monitor/server",
-    "name": "系统状态",
-    "description": "实时监控系统的运行状态和性能指标，包括服务器状态、JVM信息、数据库连接等"
+    "path": "/docmap/docs/traceability-tracing",
+    "name": "文档溯源追踪标记",
+    "description": "为文档添加溯源追踪标记"
   },
   {
-    "path": "/system/user",
-    "name": "用户管理",
-    "description": "管理系统中的所有用户账号，包括添加、编辑、删除用户，重置密码，分配权限等"
+    "path": "/docmap/docs/outbound-details",
+    "name": "外发详情",
+    "description": "查看文档外发的详细记录"
   },
   {
-    "path": "/sysconfig/jwtconfig",
-    "name": "会话配置",
-    "description": "配置系统的会话参数，包括会话超时时间、JWT密钥、令牌有效期等"
+    "path": "/docmap/terminal-customer-info",
+    "name": "终端客户信息检索",
+    "description": "检索和管理终端客户信息"
+  },
+  {
+    "path": "/docmap/department-settings",
+    "name": "终端账号组织管理",
+    "description": "管理终端账号的组织架构"
+  },
+  {
+    "path": "/docmap/universal-deployment",
+    "name": "终端部署升级",
+    "description": "管理终端的部署和升级"
+  },
+  {
+    "path": "/docmap/application-settings",
+    "name": "业务系统信息录入",
+    "description": "录入和管理业务系统的基本信息"
+  },
+  {
+    "path": "/docmap/permission/user/account",
+    "name": "服务器账号管理",
+    "description": "管理服务器的用户账号"
+  },
+  {
+    "path": "/docmap/activate",
+    "name": "试用/正式授权码",
+    "description": "管理系统的试用和正式授权"
+  },
+  {
+    "path": "/docmap/data-delete-set",
+    "name": "服务器存储限制",
+    "description": "配置服务器的存储限制策略"
+  },
+  {
+    "path": "/docmap/configuration-set",
+    "name": "终端监控应用程序配置",
+    "description": "配置终端监控的应用程序"
+  },
+  {
+    "path": "/docmap/log-info",
+    "name": "服务端日志",
+    "description": "查看服务端的操作日志"
+  },
+  {
+    "path": "/docmap/docs/documents-back",
+    "name": "终端日志",
+    "description": "查看终端的操作日志"
+  },
+  {
+    "path": "/docmap/events/raw",
+    "name": "文档使用流转详情",
+    "description": "查看文档使用和流转的详细记录"
+  },
+  {
+    "path": "/docmap/task-queue",
+    "name": "与服务器通信任务队列",
+    "description": "查看终端与服务器的通信任务队列"
+  },
+  {
+    "path": "/docmap/level-category-permission",
+    "name": "级别类别权限设置",
+    "description": "设置不同级别类别的访问权限"
   }
 ]

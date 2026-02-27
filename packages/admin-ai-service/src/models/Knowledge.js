@@ -45,6 +45,29 @@ class KnowledgeModel {
     );
     return rows;
   }
+
+  // 获取推荐问题
+  static async getSuggestedQuestions(route) {
+    if (route) {
+      // 如果提供了路由，查找相关的知识库条目
+      const [rows] = await db.query(
+        'SELECT title FROM knowledge_base WHERE JSON_CONTAINS(related_routes, ?) LIMIT 5',
+        [JSON.stringify(route)]
+      );
+
+      if (rows.length > 0) {
+        return rows.map(row => row.title);
+      }
+    }
+
+    // 如果没有路由或没有找到相关问题，返回通用问题
+    const [rows] = await db.query(
+      'SELECT title FROM knowledge_base WHERE category = ? ORDER BY created_at DESC LIMIT 5',
+      ['guide']
+    );
+
+    return rows.map(row => row.title);
+  }
 }
 
 export default KnowledgeModel;

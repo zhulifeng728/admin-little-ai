@@ -50,9 +50,58 @@ pnpm build:service
 
 ## 核心功能
 
-1. **系统解读和使用指引** - 基于知识库的智能问答和页面导航
-2. **数据查询和展示** - 自然语言查询数据
-3. **快捷操作** - 通过对话执行常用操作
+### 已实现功能
+
+1. **智能问答** - 基于知识库的智能问答，支持Markdown格式回复
+2. **页面导航** - AI回复中包含可点击的页面链接，自动跳转到相关页面
+3. **智能推荐** - 根据当前页面路由智能推荐相关问题
+4. **打字机效果** - AI回复逐字显示，提升交互体验
+5. **拖拽移动** - 小球可自由拖动到屏幕任意位置
+6. **智能定位** - 对话面板根据小球位置智能显示，避免超出屏幕
+7. **知识库管理** - 支持添加、编辑、删除知识库内容
+8. **路由配置** - 配置系统页面路由，AI可引导用户导航
+9. **AI模型配置** - 支持配置多个AI模型（OpenAI、DeepSeek等）
+
+### 规划中功能
+
+- [ ] 数据查询和展示 - 自然语言查询数据
+- [ ] 快捷操作 - 通过对话执行常用操作
+- [ ] 多轮对话优化 - 上下文理解增强
+- [ ] 语音交互 - 语音输入和播报
+
+## 功能特性详解
+
+### 1. 智能问答
+- 基于知识库的RAG（检索增强生成）
+- 支持Markdown格式回复，包括代码块、列表等
+- 自动搜索相关知识库和路由信息
+
+### 2. 打字机效果
+- AI回复逐字显示，提升用户体验
+- 使用transform优化性能，流畅丝滑
+- 显示完成后自动渲染Markdown格式
+
+### 3. 智能推荐
+- 根据当前页面路由自动推荐相关问题
+- 监听路由变化，动态更新推荐内容
+- 点击推荐问题直接发送，快速获取答案
+
+### 4. 拖拽移动
+- 小球可自由拖动到屏幕任意位置
+- 使用GPU加速，拖动流畅无卡顿
+- 自动限制在窗口范围内，不会拖出屏幕
+- 区分点击和拖拽，拖动不会触发打开面板
+
+### 5. 智能定位
+- 对话面板根据小球位置智能显示
+- 小球在左侧时面板显示在右侧，反之亦然
+- 面板垂直居中对齐小球
+- 自动避免超出屏幕边界
+
+### 6. 页面导航
+- AI回复中的链接可直接点击跳转
+- 自动集成Vue Router，无缝跳转
+- 支持中文路径自动解码
 
 ## 技术栈
 
@@ -136,9 +185,11 @@ pnpm dev
 
 ### 5. 访问系统
 
-- 配置后台：http://localhost:5173
-- 前端组件演示：http://localhost:5174/demo.html
+- 配置后台：http://localhost:5175
+- Widget开发服务：http://localhost:5174
 - 后端API：http://localhost:3000
+
+**注意**：配置后台已集成AI助手组件，可直接在配置后台中体验AI助手功能。
 
 ### 6. 配置AI模型
 
@@ -167,22 +218,59 @@ pnpm dev
 
 ```html
 <!-- 引入组件脚本 -->
-<script src="path/to/admin-ai-widget.umd.js"></script>
+<script src="http://localhost:5174/src/index.js" type="module"></script>
 
-<script>
+<script type="module">
+  import AdminAIWidget from 'http://localhost:5174/src/index.js'
+
   // 初始化组件
   new AdminAIWidget({
     apiUrl: 'http://localhost:3000/api',
-    position: 'bottom-right'
-  })
-
-  // 监听导航事件
-  window.addEventListener('ai-assistant-navigate', (e) => {
-    // 使用你的路由系统进行跳转
-    router.push(e.detail.path)
+    position: 'bottom-right',
+    theme: {
+      primaryColor: '#409eff'
+    }
   })
 </script>
 ```
+
+**在Vue应用中集成导航功能：**
+
+```javascript
+// main.js
+import router from './router'
+
+// 监听AI助手的导航事件
+window.addEventListener('ai-assistant-navigate', (e) => {
+  const path = e.detail.path
+  console.log('AI助手请求导航到:', path)
+
+  // 使用router进行页面跳转
+  if (path && router) {
+    router.push(path).catch(err => {
+      console.error('路由跳转失败:', err)
+    })
+  }
+})
+```
+
+### 10. 数据导入
+
+系统支持批量导入知识库和路由配置：
+
+```bash
+# 导入知识库
+curl -X POST http://localhost:3000/api/knowledge/import \
+  -H "Content-Type: application/json" \
+  -d @examples/scwork-knowledge-import.json
+
+# 导入路由配置
+curl -X POST http://localhost:3000/api/routes/import \
+  -H "Content-Type: application/json" \
+  -d @examples/scwork-routes-import.json
+```
+
+或在配置后台的"知识库管理"和"路由配置"页面使用导入功能。
 
 ## License
 

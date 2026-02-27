@@ -20,3 +20,16 @@ app.use(router)
 app.use(ElementPlus, { locale: zhCn })
 
 app.mount('#app')
+
+// 监听AI助手的导航事件
+window.addEventListener('ai-assistant-navigate', (e) => {
+  const path = e.detail.path
+  console.log('AI助手请求导航到:', path)
+
+  // 使用router进行页面跳转
+  if (path && router) {
+    router.push(path).catch(err => {
+      console.error('路由跳转失败:', err)
+    })
+  }
+})

@@ -13,6 +13,17 @@ router.get('/', async (req, res) => {
   }
 });
 
+// 获取推荐问题（必须在/:id之前）
+router.get('/suggested', async (req, res) => {
+  try {
+    const { route } = req.query;
+    const questions = await KnowledgeModel.getSuggestedQuestions(route);
+    res.json({ questions });
+  } catch (error) {
+    res.status(500).json({ error: error.message });
+  }
+});
+
 // 获取单个知识库
 router.get('/:id', async (req, res) => {
   try {
