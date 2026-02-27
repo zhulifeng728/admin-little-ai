@@ -6,7 +6,8 @@ export const knowledgeAPI = {
   getById: (id) => request.get(`/knowledge/${id}`),
   create: (data) => request.post('/knowledge', data),
   update: (id, data) => request.put(`/knowledge/${id}`, data),
-  delete: (id) => request.delete(`/knowledge/${id}`)
+  delete: (id) => request.delete(`/knowledge/${id}`),
+  import: (items) => request.post('/knowledge/import', { items })
 }
 
 // 路由API
@@ -15,7 +16,8 @@ export const routeAPI = {
   getById: (id) => request.get(`/routes/${id}`),
   create: (data) => request.post('/routes', data),
   update: (id, data) => request.put(`/routes/${id}`, data),
-  delete: (id) => request.delete(`/routes/${id}`)
+  delete: (id) => request.delete(`/routes/${id}`),
+  import: (items) => request.post('/routes/import', { items })
 }
 
 // AI模型API

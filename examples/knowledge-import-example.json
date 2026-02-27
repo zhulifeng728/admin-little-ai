@@ -1,0 +1,20 @@
+[
+  {
+    "title": "用户管理功能指引",
+    "content": "# 用户管理\n\n## 查看用户列表\n\n您可以在用户管理页面查看所有用户信息，支持搜索和筛选功能。\n\n## 添加新用户\n\n点击\"添加用户\"按钮，填写用户信息后提交即可。",
+    "category": "guide",
+    "related_routes": ["/user/list", "/user/add"]
+  },
+  {
+    "title": "系统设置说明",
+    "content": "# 系统设置\n\n## 基础配置\n\n在系统设置页面可以配置系统的基本参数。",
+    "category": "guide",
+    "related_routes": ["/settings"]
+  },
+  {
+    "title": "常见问题",
+    "content": "# 常见问题\n\n## 如何重置密码？\n\n请联系管理员重置密码。",
+    "category": "faq",
+    "related_routes": []
+  }
+]

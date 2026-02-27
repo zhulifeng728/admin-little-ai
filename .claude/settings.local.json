@@ -10,7 +10,12 @@
       "Bash(tree:*)",
       "Bash(ls:*)",
       "Bash(brew install:*)",
-      "Bash(xcode-select:*)"
+      "Bash(xcode-select:*)",
+      "Bash(brew services start:*)",
+      "Bash(curl:*)",
+      "Bash(lsof:*)",
+      "Bash(python3:*)",
+      "Bash(timeout 5 node:*)"
     ]
   }
 }

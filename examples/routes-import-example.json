@@ -1,0 +1,27 @@
+[
+  {
+    "path": "/user/list",
+    "name": "用户列表",
+    "description": "查看和管理所有用户，支持搜索、筛选和批量操作"
+  },
+  {
+    "path": "/user/add",
+    "name": "添加用户",
+    "description": "创建新用户账号"
+  },
+  {
+    "path": "/user/edit/:id",
+    "name": "编辑用户",
+    "description": "修改用户信息"
+  },
+  {
+    "path": "/settings",
+    "name": "系统设置",
+    "description": "配置系统基本参数"
+  },
+  {
+    "path": "/dashboard",
+    "name": "仪表盘",
+    "description": "查看系统概览和统计数据"
+  }
+]
