@@ -15,7 +15,14 @@
       "Bash(curl:*)",
       "Bash(lsof:*)",
       "Bash(python3:*)",
-      "Bash(timeout 5 node:*)"
+      "Bash(timeout 5 node:*)",
+      "Bash(pnpm run dev:service:*)",
+      "Bash(pnpm run dev:console:*)",
+      "Bash(pnpm run dev:widget:*)",
+      "Bash(xargs kill:*)",
+      "Bash(git remote add:*)",
+      "Bash(git push:*)",
+      "Bash(git rm:*)"
     ]
   }
 }
