@@ -56,4 +56,34 @@ router.delete('/:id', async (req, res) => {
   }
 });
 
+// 批量导入知识库
+router.post('/import', async (req, res) => {
+  try {
+    const { items } = req.body;
+    if (!Array.isArray(items) || items.length === 0) {
+      return res.status(400).json({ error: '导入数据格式错误' });
+    }
+
+    const results = [];
+    for (const item of items) {
+      try {
+        const id = await KnowledgeModel.create(item);
+        results.push({ success: true, id, title: item.title });
+      } catch (error) {
+        results.push({ success: false, title: item.title, error: error.message });
+      }
+    }
+
+    res.json({
+      message: '导入完成',
+      total: items.length,
+      success: results.filter(r => r.success).length,
+      failed: results.filter(r => !r.success).length,
+      results
+    });
+  } catch (error) {
+    res.status(500).json({ error: error.message });
+  }
+});
+
 export default router;
